@@ -49,3 +49,15 @@ Golang menganut hybrid system thread dimana golang menyiapkan kernel-level threa
 1. Kernel-level thread siap pada masing-masing core CPU, masing2 thread terdapat green-thread.
 2. jika ada pekerjaan, pekerjaan tersebut masuk ke green-thread.
 3. ketika pekerjaan tersebut harus menunggu, thread akan dipindahkan dari antrian dan golang akan membuat thread baru. Lalu, green-thread yang tidak terpakai/melakukan proses lain selain pekerjaan yang menunggu di atas, akan dipindahkan ke thread yang baru.
+
+
+## Memory Sharing pada Thread (inter-process communication/IPC)
+
+1. Memory Sharing
+- Skip
+
+2. Shared memories 
+   
+   beberapa Thread mengakses memory yang sama untuk saling berkomunikasi. Thread A dapat mengirimkan pesan ke thread B melalui memori X, sebaliknya thread B dapat berkomunikasi dengan thread A melalui memori X juga.
+
+   
