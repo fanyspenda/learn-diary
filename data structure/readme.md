@@ -21,7 +21,7 @@ Kedua hal diatas biasa dituliskan dalam big O notation.
 
 ## Big O Notation
 
-Sebuah notasi untuk menghitung kompleksitas dari suatu kode. Misal dalam 1 fungsi, terdapat 3 operasi dengan input `array a`:
+Sebuah notasi untuk mengetahui kompleksitas dari suatu kode. Misal dalam 1 fungsi, terdapat 3 operasi dengan input `array a`:
 
 > 1 + a[0] -> O(1)
 > 
@@ -37,13 +37,14 @@ Maka, penulisan big O notationnya adalah:
 
 > **O(n<sup>2</sup>)**
 
-### Catatan
+### **Catatan**
 > Operasi yang tidak berpengaruh terhadap perubahan data input, tidak menambah angka notasi. Misal terdapat 3 operasi dengan input array a:
-> mendeklarasikan variable
-> membuat konstanta
-> melakukan a[0] + 1
-> 
-> Maka kompleksitas di atas bukanlah O(3), tapi tetap O(1) karena baik berapapun input a yang diberikan, kita tetap membuat variable, tetap membuat konstanta, dan melakukan 1 proses saja yaitu a[0] + 1. **Tidak ada yang namanya kompleksitas O(2), O(3), dst, Karena hal tersebut konstan. Sehingga, dianggap kompleksitas tersebut sama dengan O(1)**.
+> - mendeklarasikan variable
+> - membuat konstanta
+> - melakukan a[0] + 1
+> - melakukan a[0] - 1
+> - melakukan a[1] - a[2]
+> Maka kompleksitas di atas bukanlah O(5), tapi tetap O(1) karena baik berapapun input a yang diberikan, kita tetap melakukan jumlah proses yang sama. **Tidak ada yang namanya kompleksitas O(2), O(3), dst, Karena hal tersebut konstan. Sehingga, dianggap kompleksitas tersebut sama dengan O(1)**.
 
 Jika ada 2 input pada 1 fungsi, misal input array n dan m, maka notasinya ditulis berdasarkan variable terbesar dari masing-masing input tadi. Misal terdapat notasi:
 
@@ -52,3 +53,29 @@ Jika ada 2 input pada 1 fungsi, misal input array n dan m, maka notasinya dituli
 Maka, kompleksitas di atas harus diubah menjadi:
 
 > **O(m<sup>2</sup>+n)**
+
+Dari terbaik ke terburuk, kompleksitas suatu algoritma dapat diurutkan menjadi:
+- O(1) -> konstan. Tidak terpengaruh ke perubahan input.
+- O(log(n))
+- O(n) -> linear. 
+- O(n log(n))
+- O(n<sup>2</sup>), O(n<sup>3</sup>), dst.
+- O(2<sup>n</sup>)
+- O(n!) -> faktorial
+
+## Log
+
+Dalam computer science, `log N` berarti **log<sub>2</sub> N** (menggunakan basis 2, bukan 10). Contoh:
+
+Jika terdapat program dengan kompleksitas `log N` dan menerima input panjang array 8. Maka jumlah operasi yang akan dijalankan program tersebut adalah:
+
+> log 8 dapat diartikan menjadi 2<sup>?</sup> = 8
+> 
+> ? = 3
+
+Dari perhitungan di atas, kita bisa mengetahui bahwa program tersebut melakukan 3 operasi ketika menerima input array sepanjang 8.
+
+Ketika panjang array tersebut digandakan, kita hanya perlu menambahkan `? + 1`. Sehingga, jika panjang array saat ini 16, maka program tersebut melakukan 4 operasi.
+
+Itulah kenapa `O(log(N))` lebih baik dibanding linear.
+
